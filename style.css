@@ -194,3 +194,79 @@ button:hover {
 .back-btn:hover {
   background-color: #95a5a6;
 }
+
+/* --- 세분화된 반응형 웹 (디바이스별 맞춤 레이아웃) --- */
+
+/* 카드 내부 한글 줄바꿈 최적화 (공통 적용) */
+.card {
+  word-break: keep-all; /* 단어 단위로 줄바꿈되어 텍스트 뒤틀림 방지 */
+}
+
+/* 1. 작은 데스크탑 / 태블릿 가로 모드 (화면 너비 1200px 이하) */
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 4열 -> 3열로 축소 */
+  }
+}
+
+/* 2. 일반 태블릿 세로 모드 (화면 너비 992px 이하) */
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 3열 -> 2열로 축소 */
+  }
+  body {
+    padding: 30px 20px; /* 양옆 여백을 살짝 줄임 */
+  }
+}
+
+/* 3. 일반 스마트폰 (화면 너비 768px 이하) */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 2열 -> 1열(세로)로 배치 */
+  }
+  body {
+    padding: 20px 15px; /* 모바일에 맞게 여백 대폭 축소 */
+  }
+  
+  /* 상단 헤더 세로 정렬 */
+  .dashboard-header {
+    flex-direction: column; 
+    text-align: center;
+    gap: 12px;
+  }
+  .dashboard-header h2 {
+    font-size: 22px;
+  }
+  .average-score {
+    font-size: 18px;
+  }
+  
+  /* 로그인 창 모바일 최적화 */
+  .login-container {
+    width: 95%; /* 화면의 95% 사용 */
+    margin: 40px auto; 
+    padding: 30px 20px;
+  }
+  .academy-name { font-size: 11px; }
+  .course-name { font-size: 13px; }
+  .login-header h2 { font-size: 18px; }
+}
+
+/* 4. 화면이 매우 작은 스마트폰 (화면 너비 480px 이하) */
+@media screen and (max-width: 480px) {
+  .card {
+    padding: 15px; /* 카드 내부 여백 축소 */
+  }
+  .subject-name {
+    font-size: 15px; /* 제목 글씨 살짝 축소 */
+  }
+  .subject-date {
+    font-size: 11px;
+  }
+  .subject-score {
+    font-size: 20px; /* 점수 크기 조절 */
+  }
+  .subject-feedback {
+    font-size: 13px; /* 피드백 글씨 크기 최적화 */
+  }
+}
