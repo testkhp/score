@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>내부평가 점수 확인 - MBC컴퓨터아카데미</title>
+  <link rel="stylesheet" href="style.css?v=1.2">
+</head>
+<body>
+
+  <div class="login-container" id="loginContainer">
+    <!-- 새롭게 추가 및 디자인된 헤더 영역 -->
+    <div class="login-header">
+      <p class="academy-name">MBC컴퓨터아카데미 종로본점</p>
+      <p class="course-name">과정평가형 - 멀티미디어 콘텐츠 제작 전문가</p>
+      <h2>내부평가 점수 확인 사이트</h2>
+      <div class="instruction-box">
+        본인의 성함과<br>
+        <strong>디스코드 DM</strong>으로 알려드린 본인의 <strong>6자리 번호</strong>를<br>
+        입력하시면 점수 확인이 가능합니다.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="studentSelect">이름</label>
+      <select id="studentSelect">
+        <option value="">이름을 선택하세요</option>
+        <option value="김가은">김가은</option>
+        <option value="김덕윤">김덕윤</option>
+        <option value="김여은">김여은</option>
+        <option value="김영화">김영화</option>
+        <option value="김진숙">김진숙</option>
+        <option value="김태윤">김태윤</option>
+        <option value="김현수">김현수</option>
+        <option value="박하은">박하은</option>
+        <option value="이민선">이민선</option>
+        <option value="이용재">이용재</option>
+        <option value="이치호">이치호</option>
+        <option value="이형우">이형우</option>
+        <option value="임수지">임수지</option>
+        <option value="차은진">차은진</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="passwordInput">비밀번호</label>
+      <input type="password" id="passwordInput" placeholder="비밀번호 6자리" maxlength="6">
+    </div>
+    <button id="loginBtn">점수 확인하기</button>
+    <p class="error-msg" id="errorMsg">비밀번호가 일치하지 않습니다.</p>
+  </div>
+
+  <div class="dashboard-container hidden" id="dashboardContainer">
+    <div class="dashboard-header">
+      <h2 id="studentNameDisplay">OOO 훈련생 평가 결과</h2>
+      <p id="averageDisplay" class="average-score">통합 평균 : - 점</p>
+    </div>
+    
+    <div class="grid-container" id="gridContainer"></div>
+    <div class="dashboard-footer">
+      <button id="backToMainBtn" class="back-btn">메인 화면으로 돌아가기</button>
+    </div>
+  </div>
+
+  <script src="data.js?v=1.2"></script>
+  <script src="app.js?v=1.0"></script>
+</body>
+</html>
