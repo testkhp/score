@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>내부평가 점수 확인 - MBC컴퓨터아카데미</title>
-  <link rel="stylesheet" href="style.css?v=1.2">
+  <link rel="stylesheet" href="style.css?v=1.5">
 </head>
 <body>
 
   <div class="login-container" id="loginContainer">
-    <!-- 새롭게 추가 및 디자인된 헤더 영역 -->
     <div class="login-header">
       <p class="academy-name">MBC컴퓨터아카데미 종로본점</p>
       <p class="course-name">과정평가형 - 멀티미디어 콘텐츠 제작 전문가</p>
@@ -39,6 +38,7 @@
         <option value="이형우">이형우</option>
         <option value="임수지">임수지</option>
         <option value="차은진">차은진</option>
+        <option value="admin">👨‍🏫 관리자 (강사 전용)</option>
       </select>
     </div>
     <div class="form-group">
@@ -56,12 +56,25 @@
     </div>
     
     <div class="grid-container" id="gridContainer"></div>
+    
     <div class="dashboard-footer">
-      <button id="backToMainBtn" class="back-btn">메인 화면으로 돌아가기</button>
+      <button class="back-btn backToMainBtn">메인 화면으로 돌아가기</button>
     </div>
   </div>
 
-  <script src="data.js?v=1.2"></script>
-  <script src="app.js?v=1.0"></script>
+  <div class="admin-container hidden" id="adminContainer">
+    <div class="dashboard-header">
+      <h2>👨‍🏫 전체 훈련생 성적 현황</h2>
+    </div>
+    <div class="table-responsive">
+      <table id="adminTable"></table>
+    </div>
+    <div class="dashboard-footer">
+      <button class="back-btn backToMainBtn">메인 화면으로 돌아가기</button>
+    </div>
+  </div>
+
+  <script src="data.js?v=1.4"></script>
+  <script src="app.js?v=1.2"></script>
 </body>
 </html>
