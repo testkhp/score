@@ -1,24 +1,36 @@
-/* style.css */
+/* 기본 스타일 및 마우스 드래그 방지 */
 body {
   font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
   background-color: #f4f7f6;
   margin: 0;
   padding: 40px;
   color: #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* 로그인 화면 컨테이너 */
+/* 패스워드 입력창은 클릭 및 드래그 허용 예외 처리 */
+input[type="password"] {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* 로그인 화면 레이아웃 */
 .login-container {
-  width: 420px;
+  width: 90%;
+  max-width: 420px;
   margin: 80px auto;
   background: #fff;
   padding: 40px 30px;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.08);
   text-align: center;
+  box-sizing: border-box;
 }
-
-/* 새롭게 디자인된 헤더 텍스트 영역 */
 .login-header {
   margin-bottom: 25px;
 }
@@ -40,8 +52,6 @@ body {
   margin: 0 0 20px 0;
   letter-spacing: -0.5px;
 }
-
-/* 안내 문구 박스 */
 .instruction-box {
   font-size: 13px;
   color: #555;
@@ -57,7 +67,6 @@ body {
   color: #e74c3c;
 }
 
-/* 입력 폼 영역 */
 .form-group {
   margin-bottom: 15px;
   text-align: left;
@@ -83,7 +92,6 @@ select:focus, input:focus {
   border-color: #3498db;
 }
 
-/* 버튼 및 에러 메시지 */
 button {
   width: 100%;
   padding: 14px;
@@ -108,7 +116,7 @@ button:hover {
   margin-top: 15px;
 }
 
-/* 성적 대시보드 화면 */
+/* 학생용 대시보드 화면 및 가독성 확장 2단 그리드 */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -135,52 +143,55 @@ button:hover {
   margin: 0;
 }
 
-/* 4x4 그리드 레이아웃 */
+/* 장문 피드백 판독 편의를 위한 2열 확장 그리드 */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px; 
 }
 .card {
   background: #fff;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 25px 30px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
   border-top: 4px solid #3498db;
   display: flex;
   flex-direction: column;
+  word-break: keep-all; 
 }
 .card-header {
   border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   margin-bottom: 15px;
 }
 .subject-name {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
-  margin: 0 0 5px 0;
+  margin: 0 0 8px 0;
   color: #2c3e50;
 }
 .subject-date {
-  font-size: 12px;
+  font-size: 13px;
   color: #7f8c8d;
 }
 .subject-score {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #2980b9;
   text-align: right;
   margin: 10px 0 0 0;
 }
+
+/* 장문 가독성 핵심: 글자 크기 확대 및 행간 너비 1.7배 설정 */
 .subject-feedback {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #555;
+  font-size: 15px; 
+  line-height: 1.7; 
+  color: #333; 
   white-space: pre-wrap;
   flex-grow: 1;
 }
 
-/* 하단 돌아가기 버튼 영역 */
+/* 돌아가기 하단 영역 */
 .dashboard-footer {
   text-align: center;
   margin-top: 40px;
@@ -188,47 +199,81 @@ button:hover {
   border-top: 1px solid #ddd;
 }
 .back-btn {
-  width: 250px; /* 로그인 버튼과 달리 너비를 고정 */
+  width: 250px; 
   background-color: #7f8c8d;
 }
 .back-btn:hover {
   background-color: #95a5a6;
 }
 
+/* 관리자용 성적표 테이블 디자인 */
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; 
+  margin-bottom: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+}
+table th {
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: bold;
+}
+table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+table tbody tr:hover {
+  background-color: #eaf2f8;
+}
+.highlight-avg {
+  font-weight: bold;
+  color: #e74c3c;
+  background-color: #fdf2f0;
+}
+
 /* --- 세분화된 반응형 웹 (디바이스별 맞춤 레이아웃) --- */
 
-/* 카드 내부 한글 줄바꿈 최적화 (공통 적용) */
-.card {
-  word-break: keep-all; /* 단어 단위로 줄바꿈되어 텍스트 뒤틀림 방지 */
-}
-
-/* 1. 작은 데스크탑 / 태블릿 가로 모드 (화면 너비 1200px 이하) */
+/* 1. 데스크탑/태블릿 가로 (화면 너비 1200px 이하) */
 @media screen and (max-width: 1200px) {
   .grid-container {
-    grid-template-columns: repeat(3, 1fr); /* 4열 -> 3열로 축소 */
+    gap: 20px;
   }
 }
 
-/* 2. 일반 태블릿 세로 모드 (화면 너비 992px 이하) */
+/* 2. 일반 태블릿 세로 (화면 너비 992px 이하) */
 @media screen and (max-width: 992px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 3열 -> 2열로 축소 */
-  }
   body {
-    padding: 30px 20px; /* 양옆 여백을 살짝 줄임 */
+    padding: 30px 20px; 
+  }
+  .card {
+    padding: 20px;
   }
 }
 
-/* 3. 일반 스마트폰 (화면 너비 768px 이하) */
+/* 3. 스마트폰 (화면 너비 768px 이하) */
 @media screen and (max-width: 768px) {
   .grid-container {
-    grid-template-columns: 1fr; /* 2열 -> 1열(세로)로 배치 */
+    grid-template-columns: 1fr; /* 스마트폰 환경에서는 세로 1열로 꽉 차게 변경 */
   }
   body {
-    padding: 20px 15px; /* 모바일에 맞게 여백 대폭 축소 */
+    padding: 20px 15px; 
   }
-  
-  /* 상단 헤더 세로 정렬 */
   .dashboard-header {
     flex-direction: column; 
     text-align: center;
@@ -240,10 +285,8 @@ button:hover {
   .average-score {
     font-size: 18px;
   }
-  
-  /* 로그인 창 모바일 최적화 */
   .login-container {
-    width: 95%; /* 화면의 95% 사용 */
+    width: 95%; 
     margin: 40px auto; 
     padding: 30px 20px;
   }
@@ -252,21 +295,22 @@ button:hover {
   .login-header h2 { font-size: 18px; }
 }
 
-/* 4. 화면이 매우 작은 스마트폰 (화면 너비 480px 이하) */
+/* 4. 초소형 스마트폰 (화면 너비 480px 이하) */
 @media screen and (max-width: 480px) {
   .card {
-    padding: 15px; /* 카드 내부 여백 축소 */
+    padding: 15px; 
   }
   .subject-name {
-    font-size: 15px; /* 제목 글씨 살짝 축소 */
+    font-size: 15px; 
   }
   .subject-date {
     font-size: 11px;
   }
   .subject-score {
-    font-size: 20px; /* 점수 크기 조절 */
+    font-size: 22px; 
   }
   .subject-feedback {
-    font-size: 13px; /* 피드백 글씨 크기 최적화 */
+    font-size: 14px; 
+    line-height: 1.6;
   }
 }
